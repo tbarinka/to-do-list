@@ -1,0 +1,21 @@
+Header
+    Title: MakeTime
+    Button to expand-contract sidebar, another for header
+    home button
+    Search bar
+
+Sidebar
+    Calendar
+    Lists
+        Expand and contract
+    Master-List (Today, This Week, Upcoming)
+
+Task properties
+
+    Name of activity
+    Time of activity / due date
+    Date of activity
+    Description
+    Checklist
+    Additional Notes
+    Project to which activity belongs

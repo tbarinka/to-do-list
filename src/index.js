@@ -1,6 +1,4 @@
 import './style.css';
+import { sidebarDom } from './sidebar.js';
 
-const p = document.createElement('p');
-p.textContent = "fuck"
-const body = document.getElementById('body');
-body.appendChild(p);
+sidebarDom();

@@ -1,3 +1,12 @@
-.hello {
+#Content {
+    background-color: #a5f3fc;
+    border: solid red;
+}
+.Sidebar {
+    background-color: white;
+    border: solid black;
+
+}
+p {
     color: red;
 }
