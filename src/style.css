@@ -11,6 +11,9 @@
         display: flex;
         justify-content: space-between;
     }
+    .sidebarLeftTopComponent {
+        display: flex;
+    }
     .listCollapseButton {
         display: flex;
     }

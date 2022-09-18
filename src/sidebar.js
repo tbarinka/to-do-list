@@ -73,7 +73,12 @@ function leftSidebarComponent(title) {
 function leftSidebarComponentListCollapse(title) {
     const item = document.createElement('div');
         item.classList.add('SideBarItemLeftComponent');
-    item.appendChild(listCollapseButton(title));
+    const top = document.createElement('div');
+        top.classList.add('sidebarLeftTopComponent');
+
+    item.appendChild(top)
+        top.appendChild(header(title));
+        top.appendChild(listCollapseButton());
     item.appendChild(collapsibleContent());
     return item
 };
@@ -90,27 +95,29 @@ function leftSidebarComponentListCollapse(title) {
         const collapseIcon = new Image();
         collapseIcon.src = chevronDown;
 
-            function toggleList() {
-                const collapsibleContent = (this.nextElementSibling);
+        function toggleList() {
+            console.log(this.parentElement.parentElement.lastChild);
+            collapsibleContent = (this.parentElement.parentElement.lastChild);
 
-                if (collapsibleContent.classList.contains("collapsed")) {
-                    collapsibleContent.classList.remove("collapsed");
-                    collapsibleContent.classList.add("uncollapsed");
-                    collapseIcon.src = chevron;
-                    console.log(collapsibleContent);
-                } else if (collapsibleContent.classList.contains("uncollapsed")) {
-                    collapsibleContent.classList.remove("uncollapsed");
-                    collapsibleContent.classList.add("collapsed");
-                    collapseIcon.src = chevronDown;
-                    console.log(collapsibleContent);
-                }     
-        }
+            if (collapsibleContent.classList.contains("collapsed")) {
+                collapsibleContent.classList.remove("collapsed");
+                collapsibleContent.classList.add("uncollapsed");
+                collapseIcon.src = chevron;
+                console.log(collapsibleContent);
+            } else if (collapsibleContent.classList.contains("uncollapsed")) {
+                collapsibleContent.classList.remove("uncollapsed");
+                collapsibleContent.classList.add("collapsed");
+                collapseIcon.src = chevronDown;
+                console.log(collapsibleContent);
+            }
+        };     
 
         button.appendChild(header(title));
         button.appendChild(collapseIcon);
     
         return button;
-    };
+    }
+
         function collapsibleContent() {
             const div = document.createElement('div');
                 div.classList.add("collapsed");
