@@ -27,8 +27,12 @@ function sidebarHeaderIntegrater(title, toggleRightComponent) {
     div.classList.add('SidebarIntegratedItem');
     
     if (toggleRightComponent == "y") {
-        div.appendChild(leftSidebarComponentListCollapse(title))
-        div.appendChild(rightSidebarItem());
+        const headerDiv = document.createElement('SideBarTopCollpasibleComponent');
+            headerDiv.appendChild(leftSidebarComponentListCollapse(title))
+            headerDiv.appendChild(rightSidebarItem());
+        
+        div.appendChild(headerDiv);
+
     } else if (toggleRightComponent == "n") {
         div.appendChild(leftSidebarComponent(title))
         const item = document.createElement('div');
@@ -72,7 +76,8 @@ function leftSidebarComponentListCollapse(title) {
     const item = document.createElement('div');
         item.classList.add('SideBarItemLeftComponent');
     item.appendChild(header(title));
-    item.appendChild(listCollapse());
+    item.appendChild(listCollapseButton());
+    item.appendChild(collapsibleContent());
     return item
 };
     function header(title) {
@@ -81,15 +86,38 @@ function leftSidebarComponentListCollapse(title) {
     sideHeader.textContent = title;
     return sideHeader;
     };
-    function listCollapse() {
+    function listCollapseButton() {
     const button = document.createElement('button');
         button.classList.add('listCollapseButton');
+        button.addEventListener("click", toggleList);
+
     const collapseIcon = new Image();
     collapseIcon.src = chevron;
     button.appendChild(collapseIcon);
+    
     return button;
     };
+        function toggleList() {
+            const collapsibleContent = (this.nextElementSibling);
+            if (collapsibleContent.classList.contains("collapsed")) {
+                collapsibleContent.classList.remove("collapsed");
+                collapsibleContent.classList.add("uncollapsed");
+                console.log(collapsibleContent);
+            } else if (collapsibleContent.classList.contains("uncollapsed")) {
+                collapsibleContent.classList.remove("uncollapsed");
+                collapsibleContent.classList.add("collapsed");
+                console.log(collapsibleContent);
+            }     
+        }
+        function collapsibleContent() {
+            const div = document.createElement('div');
+                div.classList.add("collapsed");
+            const p = document.createElement("p");
+            p.textContent = "Here is some text just to get started."
+            div.appendChild(p);
+            return div;
 
+        }
 
 
 export { sidebarDom }
