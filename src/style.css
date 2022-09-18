@@ -7,12 +7,16 @@
     border: solid black;
 
 }
-p {
-    color: red;
-}
-.collapsed {
+    .sidebarIntegratedItem {
+        display: flex;
+        justify-content: space-between;
+    }
+    .listCollapseButton {
+        display: flex;
+    }
+    .collapsed {
     display: none;
-}
-.uncollapsed {
+    }
+    .uncollapsed {
     display: block;
-}
+    }
