@@ -6,6 +6,7 @@
     background-color: #a5f3fc;
     border: solid red;
 }
+/*sidebar stuff*/
 .Sidebar {
     background-color: white;
     border: solid black;
@@ -43,4 +44,25 @@
 }
 .uncollapsed {
     display: block;
+}
+/*sidebar popups*/
+.newListCard {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    top: 0;
+    bottom: 0;
+    text-align: center;
+    height: 250px;
+    width: 500px;
+    border: solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }

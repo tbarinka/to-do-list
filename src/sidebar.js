@@ -1,12 +1,13 @@
 import './style.css';
+import { addListCardDOMLoad } from './sidebar-popups.js'
 import chevron from './images/chevron-up.png';
 import plus from './images/plus.png';
 import pencil from './images/pencil-outline.png';
 import chevronDown from './images/chevron-down.png'
 
+const content = document.getElementById('Content')
 
 function sidebarDom() {
-    const content = document.getElementById('Content')
     const sidebar = document.createElement('div');
         sidebar.classList.add('Sidebar');
     content.appendChild(sidebar);
@@ -47,17 +48,22 @@ function rightSidebarItem(toggleEditButton) {
     if (toggleEditButton == "y") {
         item.appendChild(editButton());
     }
-    item.appendChild(addButton());
+    item.appendChild(addListButton());
     return item;
 }
-    function addButton() {
+    function addListButton() {
     const button = document.createElement('button');
         button.classList.add('SideBarRightComponentButton')
-    const addBtn = new Image(30, 30);
-    addBtn.src = plus;
-    button.appendChild(addBtn);
+        const addBtn = new Image(30, 30);
+        addBtn.src = plus;
+
+        button.addEventListener('click', addListEvent);
+        button.appendChild(addBtn);
     return button;
     }
+        function addListEvent() {
+            document.body.appendChild(addListCardDOMLoad("Cancel", "Create"));
+        }
     function editButton() {
     const button = document.createElement('button');
         button.classList.add('SideBarRightComponentButton');
@@ -131,8 +137,5 @@ function leftSidebarComponentListCollapse(title) {
 
         }
 
-function addListDOM() {
-
-}
 
 export { sidebarDom }
