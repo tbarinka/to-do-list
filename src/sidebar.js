@@ -12,7 +12,7 @@ function sidebarDom() {
     content.appendChild(sidebar);
     sidebar.appendChild(createTaskButton());
     sidebar.appendChild(sidebarHeaderIntegrater('Calendar', 'y'))
-    sidebar.appendChild(sidebarHeaderIntegrater('Lists', 'y'));
+    sidebar.appendChild(sidebarHeaderIntegrater('Lists', 'y', 'y'));
 }
 function createTaskButton() {
     const div = document.createElement('div');
@@ -23,13 +23,14 @@ function createTaskButton() {
     div.appendChild(button);
     return div;
 }
-function sidebarHeaderIntegrater(title, toggleRightComponent) {
+function sidebarHeaderIntegrater(title, toggleRightComponent, toggleEditButton) {
     const div = document.createElement('div');
     div.classList.add('sidebarIntegratedItem');
     
+    
     if (toggleRightComponent == "y") {
         div.appendChild(leftSidebarComponentListCollapse(title))
-        div.appendChild(rightSidebarItem());
+        div.appendChild(rightSidebarItem(toggleEditButton));
         
     } else if (toggleRightComponent == "n") {
         div.appendChild(leftSidebarComponent(title))
@@ -40,10 +41,12 @@ function sidebarHeaderIntegrater(title, toggleRightComponent) {
     return div;
 
 }
-function rightSidebarItem() {
+function rightSidebarItem(toggleEditButton) {
     const item = document.createElement('div');
         item.classList.add('SideBarItemRightComponent');
-    item.appendChild(editButton());
+    if (toggleEditButton == "y") {
+        item.appendChild(editButton());
+    }
     item.appendChild(addButton());
     return item;
 }
@@ -72,7 +75,7 @@ function leftSidebarComponent(title) {
 };
 function leftSidebarComponentListCollapse(title) {
     const item = document.createElement('div');
-        item.classList.add('SideBarItemLeftComponent');
+        item.classList.add('sideBarItemLeftComponent');
     const top = document.createElement('div');
         top.classList.add('sidebarLeftTopComponent');
 
