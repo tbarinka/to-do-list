@@ -53,7 +53,7 @@ function rightSidebarItem(toggleEditButton) {
     function addButton() {
     const button = document.createElement('button');
         button.classList.add('SideBarRightComponentButton')
-    const addBtn = new Image();
+    const addBtn = new Image(30, 30);
     addBtn.src = plus;
     button.appendChild(addBtn);
     return button;
@@ -61,7 +61,7 @@ function rightSidebarItem(toggleEditButton) {
     function editButton() {
     const button = document.createElement('button');
         button.classList.add('SideBarRightComponentButton');
-    const editImage = new Image();
+    const editImage = new Image(30, 30);
     editImage.src = pencil;
     button.appendChild(editImage);
     return button;
@@ -95,7 +95,7 @@ function leftSidebarComponentListCollapse(title) {
         const button = document.createElement('button');
         button.classList.add('listCollapseButton');
         button.addEventListener("click", toggleList);
-        const collapseIcon = new Image();
+        const collapseIcon = new Image(30, 30);
         collapseIcon.src = chevronDown;
 
         function toggleList() {
@@ -131,5 +131,8 @@ function leftSidebarComponentListCollapse(title) {
 
         }
 
+function addListDOM() {
+
+}
 
 export { sidebarDom }

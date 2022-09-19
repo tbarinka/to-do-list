@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0
+  }
 #Content {
     background-color: #a5f3fc;
     border: solid red;
@@ -5,21 +9,38 @@
 .Sidebar {
     background-color: white;
     border: solid black;
+    width: 275px;
+    height: 100vh;
 
 }
-    .sidebarIntegratedItem {
+.sidebarIntegratedItem {
         display: flex;
         justify-content: space-between;
-    }
-    .sidebarLeftTopComponent {
+}
+.sidebarLeftTopComponent {
         display: flex;
-    }
-    .listCollapseButton {
+        align-items: center;
+}
+.SideBarItemRightComponent {
         display: flex;
-    }
-    .collapsed {
+}
+.SideBarRightComponentButton {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.listCollapseButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+}
+.collapsed {
     display: none;
-    }
-    .uncollapsed {
+}
+.uncollapsed {
     display: block;
-    }
+}
