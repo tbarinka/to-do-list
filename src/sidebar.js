@@ -105,19 +105,15 @@ function leftSidebarComponentListCollapse(title) {
         collapseIcon.src = chevronDown;
 
         function toggleList() {
-            console.log(this.parentElement.parentElement.lastChild);
             collapsibleContent = (this.parentElement.parentElement.lastChild);
-
             if (collapsibleContent.classList.contains("collapsed")) {
                 collapsibleContent.classList.remove("collapsed");
                 collapsibleContent.classList.add("uncollapsed");
                 collapseIcon.src = chevron;
-                console.log(collapsibleContent);
             } else if (collapsibleContent.classList.contains("uncollapsed")) {
                 collapsibleContent.classList.remove("uncollapsed");
                 collapsibleContent.classList.add("collapsed");
                 collapseIcon.src = chevronDown;
-                console.log(collapsibleContent);
             }
         };     
 
@@ -130,12 +126,11 @@ function leftSidebarComponentListCollapse(title) {
         function collapsibleContent() {
             const div = document.createElement('div');
                 div.classList.add("collapsed");
-            const p = document.createElement("p");
-            p.textContent = "Here is some text just to get started."
-            div.appendChild(p);
+            const text = document.createElement("div");
+            text.textContent = "Here is some text just to get started."
+            div.appendChild(text);
             return div;
 
         }
-
 
 export { sidebarDom }
