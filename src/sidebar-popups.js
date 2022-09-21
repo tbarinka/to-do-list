@@ -9,13 +9,15 @@ function addListCardDOMLoad(s1, s2) {
     card.appendChild(cardInput());
     card.appendChild(buttonIntegrator(s1, s2));
 
-    //console.log(card.lastChild.lastChild) = create button
-    //console.log(card.firstChild.firstChild) == textarea
+    //event listener on card create button
     card.lastChild.lastChild.addEventListener('click', (event) => {
-        console.log(card.firstChild.firstChild.textContent);
-        const name = card.firstChild.firstChild.textContent;
+        //console.log(card.lastChild.lastChild) = create button
+        //console.log(card.firstChild.firstChild) == textarea
+        const name = card.firstChild.firstChild.value;
         createListObject(name);
         console.log(userLists);
+        console.log(card.firstChild.firstChild.value);
+        updateLists();
     });
     
     return card;
@@ -57,5 +59,18 @@ function createListObject(name) {
     const list = new listObject(name);
     userLists.push(list);
 }
+function updateLists() {
+    const lists = document.getElementById('listsContent');
+    const listsContainer = document.getElementById('listsContainer');
+
+    console.log(lists);
+    console.log(listsContainer);
+    console.log(userLists[0]);
+
+    const listItem = document.createElement('p');
+    listItem.textContent = userLists[0];
+    listsContainer.appendChild(listItem);
+}
+
 
 export { addListCardDOMLoad }

@@ -3,7 +3,8 @@ import { addListCardDOMLoad } from './sidebar-popups.js'
 import chevron from './images/chevron-up.png';
 import plus from './images/plus.png';
 import pencil from './images/pencil-outline.png';
-import chevronDown from './images/chevron-down.png'
+import chevronDown from './images/chevron-down.png';
+import userLists from './sidebar-popups.js';
 
 const content = document.getElementById('Content')
 
@@ -126,11 +127,26 @@ function leftSidebarComponentListCollapse(title) {
         function collapsibleContent() {
             const div = document.createElement('div');
                 div.classList.add("collapsed");
+                div.setAttribute("id", "listsContainer");
             const text = document.createElement("div");
+                text.setAttribute("id", "listsContent");
             text.textContent = "Here is some text just to get started."
             div.appendChild(text);
             return div;
-
         }
 
-export { sidebarDom }
+        function updateLists() {
+            const lists = document.getElementById('listsContent');
+            const listsContainer = document.getElementById('listsContainer');
+        
+            console.log(lists);
+            console.log(listsContainer);
+            console.log(userLists[0]);
+        
+            const listItem = document.createElement('p');
+            listItem.textContent = userLists[0];
+            listsContainer.appendChild(listItem);
+        }
+
+
+export { sidebarDom, updateLists }
